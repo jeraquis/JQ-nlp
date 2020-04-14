@@ -15,6 +15,33 @@ app.use(bodyParser.json());
 
 console.log(__dirname)
 
+var AYLIENTextAPI = require('aylien_textapi');
+var textapi = new AYLIENTextAPI({
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
+});
+
+let data = {}
+
+app.get('/getting', function (req, res){
+    console.log(data)
+    res.send(data)
+})
+
+app.post('/posting', function (req, res){
+    let x = req.body
+    console.log(x)
+    textapi.hashtags({
+        url: x
+    }, function(error, response) {
+        if (error === null) {
+            console.log(response)
+            data.push(response)
+        }
+    })
+
+})
+
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
