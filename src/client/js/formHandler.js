@@ -8,6 +8,7 @@ function handleSubmit(event) {
     const getData = async () => {
         console.log('in getData')
         const apidata = fetch('http://localhost:8001/getting')
+        console.log(apidata)
         return apidata
     }
 
@@ -15,10 +16,13 @@ function handleSubmit(event) {
     fetch('http://localhost:8001/posting', {
         method: 'POST',
         headers: { 'Content-type': 'application/json'},
-        body: JSON.stringify(formText)
+        body: JSON.stringify({formText})
     })
-    .then(getData)
-    .then(res => res.json())
+    .then(console.log('posted'))
+    .then(function(res) {
+        console.log('what the hell')
+        getData()
+    })
     .then(function(res) {
         console.log(res)
         document.getElementById('results').innerHTML = res
