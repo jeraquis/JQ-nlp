@@ -2,37 +2,34 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-
+        <title>Text Analyzer</title>
+        <div id="explanation">
+            <h1>Text Analyzer</h1>
+            <h3>Enter text in the form below to be analyzed.</h3>
+            <h3>The text analyzer will determine if the text has a positive or negative bent.</h3>
+        </div>
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
+                    <input id="name" type="text" name="input" value="" placeholder="Text to be analyzed...">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Form Results:</strong>
+                <h3>Form Results:</h3>
                 <div id="results"></div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
         </footer>
 
     </body>

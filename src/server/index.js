@@ -27,45 +27,23 @@ let data = {}
 
 app.get('/getting', function (req, res){
     console.log('getting')
-    console.log(data)
-    res.send(data)
+    res.send( {str: data} )
 })
 
 app.post('/posting', function (req, res){
-    console.log(process.env.API_ID)
-    console.log(process.env.API_KEY)
+    console.log('posting')
     let x = req.body.formText
-    console.log(x)
     textapi.sentiment({
         text: x,
-        mode: 'document',
+        mode: 'document'
     }, function(error, response) {
         console.log(error)
         if (error === null) {
-          console.log(response)
-          data = response
-          const res = 'it worked'
-          return res
+          data = response.polarity
+          console.log(data)
         }
     })
 })
-    /*
-app.post('/posting', function (req, res){
-    console.log(process.env.API_ID)
-    console.log(process.env.API_KEY)
-    let x = req.body.formText
-    console.log(x)
-    textapi.hashtags({
-        url: x
-    }, function(error, response) {
-        console.log(error)
-        if (error === null) {
-            console.log(response)
-            data.push(response)
-        }
-    })
-
-}) */
 
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
