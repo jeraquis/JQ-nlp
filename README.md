@@ -1,3 +1,13 @@
+Completed project:
+
+Webpack dev and prod configs set up
+Aylien API call is up and running
+API ID and key are in .env file
+Code tests user input for a reasonable length (between 20 and 500 characters) and notifies the user when it is out of that scope
+Modest changes to index.html and styles
+Jest test file set up, tests pass
+Service workers set up
+
 # Project Instructions
 
 This repo is your starter code for the project. It is the same as the starter code we began with in lesson 2. Install and configure Webpack just as we did in the course. Feel free to refer to the course repo as you build this one, and remember to make frequent commits and to create and merge branches as necessary!
