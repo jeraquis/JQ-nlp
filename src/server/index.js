@@ -26,12 +26,10 @@ var textapi = new AYLIENTextAPI({
 let data = {}
 
 app.get('/getting', function (req, res){
-    console.log('getting')
     res.send( {str: data} )
 })
 
 app.post('/posting', function (req, res){
-    console.log('posting')
     let x = req.body.formText
     textapi.sentiment({
         text: x,
