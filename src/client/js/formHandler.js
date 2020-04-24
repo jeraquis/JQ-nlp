@@ -1,3 +1,5 @@
+import { getData } from './nameChecker'
+
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -14,20 +16,6 @@ function handleSubmit(event) {
     }
     else {
         document.getElementById('results').innerHTML = 'Text should be between 20 and 500 characters. Please try again!'
-    }
-}
-
-async function getData(url) {
-    const apidata = await fetch(url)
-    try {
-        const apiJson = await apidata.json()
-        const results = apiJson.str
-        const capResults = results.charAt(0).toUpperCase() + results.slice(1)
-        document.getElementById('results').innerHTML = capResults
-        const type = (typeof capResults)
-        return {type}
-    } catch (error) {
-        console.log('error', error)
     }
 }
 
