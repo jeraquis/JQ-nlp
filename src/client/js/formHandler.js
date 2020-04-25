@@ -12,7 +12,9 @@ function handleSubmit(event) {
             headers: { 'Content-type': 'application/json'},
             body: JSON.stringify({formText})
         })
-        .then(getData('http://localhost:8001/getting'))
+        .then(() => {
+            getData('http://localhost:8001/getting')
+        })
     }
     else {
         document.getElementById('results').innerHTML = 'Text should be between 20 and 500 characters. Please try again!'

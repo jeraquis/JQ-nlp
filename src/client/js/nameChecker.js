@@ -2,9 +2,10 @@ async function getData(url) {
     const apidata = await fetch(url)
     try {
         const apiJson = await apidata.json()
-        const results = apiJson.str
-        const capResults = results.charAt(0).toUpperCase() + results.slice(1)
-        document.getElementById('results').innerHTML = capResults
+//        const capResults = results.charAt(0).toUpperCase() + results.slice(1)
+        document.getElementById('results').innerHTML = `<p class="output">Polarity: ${apiJson.polarity}</p>
+            <p class="output">Subjectivity: ${apiJson.subjectivity}</p>
+            <p class="output">Text: ${apiJson.text}</p>`
         const type = (typeof capResults)
         return {type}
     } catch (error) {
